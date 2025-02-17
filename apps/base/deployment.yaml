@@ -2,9 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: linkding
-  namespace: linkding
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: linkding
@@ -18,9 +17,10 @@ spec:
           image: sissbruecker/linkding:1.31.0
           ports:
             - containerPort: 9090
+
           volumeMounts:
             - name: linkding-data
-              mountPath: /data
+              mountPath: /etc/linkding/data
       volumes:
         - name: linkding-data
           persistentVolumeClaim:
