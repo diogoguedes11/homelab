@@ -5,9 +5,9 @@ metadata:
   namespace: linkding
 spec:
   securityContext:
-    runAsUser: 33 # run as www-data 
-    runAsGroup: 33 
-    fsGroup: 33 
+    runAsUser: 33 # www-data user id
+    runAsGroup: 33 # www-data group id 
+    fsGroup: 33 # www-data group id 
   replicas: 1
   selector:
     matchLabels:
