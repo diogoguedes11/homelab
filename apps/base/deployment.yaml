@@ -21,12 +21,28 @@ spec:
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.31.0
+          env:
+          - name: LD_SUPERUSER_NAME  
+            valueFrom:
+              secretKeyRef:
+                key: user
+                name: user
+          - name: LD_SUPERUSER_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: password
+                name: password
           ports:
             - containerPort: 9090
-
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "250m"
           securityContext:
             allowPrivilegeEscalation: false
-
           volumeMounts:
             - name: linkding-data
               mountPath: /etc/linkding/data
@@ -34,3 +50,4 @@ spec:
         - name: linkding-data
           persistentVolumeClaim:
             claimName: linkding-data-pvc
+
