@@ -21,17 +21,17 @@ spec:
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.31.0
-          env:
-          - name: LD_SUPERUSER_NAME  
-            valueFrom:
-              secretKeyRef:
-                key: user
-                name: user
-          - name: LD_SUPERUSER_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                key: password
-                name: password
+          # env:
+          # - name: LD_SUPERUSER_NAME  
+          #   valueFrom:
+          #     secretKeyRef:
+          #       key: user
+          #       name: user
+          # - name: LD_SUPERUSER_PASSWORD
+          #   valueFrom:
+          #     secretKeyRef:
+          #       key: password
+          #       name: password
           ports:
             - containerPort: 9090
           resources:
