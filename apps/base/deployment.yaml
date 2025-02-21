@@ -26,12 +26,12 @@ spec:
             valueFrom:
               secretKeyRef:
                 key: user
-                name: user
+                name: linkding-secret 
           - name: LD_SUPERUSER_PASSWORD
             valueFrom:
               secretKeyRef:
                 key: password
-                name: password
+                name: linkding-secret 
           ports:
             - containerPort: 9090
           resources:
