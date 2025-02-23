@@ -14,5 +14,6 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./apps/production
+  # When we delete a resource from the repository, we want to delete it from the cluster
   prune: true
   timeout: 5m
