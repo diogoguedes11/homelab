@@ -9,10 +9,10 @@ spec:
     - host: linkding.local
       http:
         paths:
-          - backend:
+          - path: /
+            pathType: Prefix
+            backend:
               service:
                 name: linkding
                 port:
                   number: 9090
-            path: /
-            pathType: Prefix
