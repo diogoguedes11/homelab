@@ -22,16 +22,16 @@ spec:
         - name: linkding
           image: sissbruecker/linkding:1.31.0
           env:
-          - name: LD_SUPERUSER_NAME  
-            valueFrom:
-              secretKeyRef:
-                key: user
-                name: linkding-secret 
-          - name: LD_SUPERUSER_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                key: password
-                name: linkding-secret 
+            - name: LD_SUPERUSER_NAME
+              valueFrom:
+                secretKeyRef:
+                  key: user
+                  name: linkding-secret
+            - name: LD_SUPERUSER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: linkding-secret
           ports:
             - containerPort: 9090
           resources:
@@ -50,4 +50,3 @@ spec:
         - name: linkding-data
           persistentVolumeClaim:
             claimName: linkding-data-pvc
-
