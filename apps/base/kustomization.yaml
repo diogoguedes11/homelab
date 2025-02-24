@@ -5,3 +5,4 @@ resources:
   - namespace.yaml
   - storage.yaml
   - linkding-secret.yaml
+  - service.yaml
