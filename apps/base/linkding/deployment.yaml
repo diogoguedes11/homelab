@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: linkding
-  namespace: linkding
 spec:
   replicas: 1
   selector:
@@ -21,20 +20,16 @@ spec:
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.31.0
+          ports:
+            - containerPort: 9090
+
           envFrom:
             - secretRef:
                 name: linkding-secret
-          ports:
-            - containerPort: 9090
-          resources:
-            requests:
-              memory: "64Mi"
-              cpu: "250m"
-            limits:
-              memory: "128Mi"
-              cpu: "250m"
+
           securityContext:
             allowPrivilegeEscalation: false
+
           volumeMounts:
             - name: linkding-data
               mountPath: /etc/linkding/data
