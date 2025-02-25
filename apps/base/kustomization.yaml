@@ -6,4 +6,3 @@ resources:
   - storage.yaml
   - linkding-secret.yaml
   - service.yaml
-  - ingress.yaml
