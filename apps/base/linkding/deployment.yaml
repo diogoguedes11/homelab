@@ -24,9 +24,17 @@ spec:
           ports:
             - containerPort: 9090
 
-          envFrom:
-            - secretRef:
-                name: linkding-secret
+          env:
+            - name: LD_SUPERUSER_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: linkding-secret
+                  key: LD_SUPERUSER_NAME
+            - name: LD_SUPERUSER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: linkding-secret
+                  key: LD_SUPERUSER_PASSWORD
 
           resources:
             limits:
