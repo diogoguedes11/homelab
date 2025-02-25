@@ -35,5 +35,7 @@ spec:
         annotations:
           kubernetes.io/ingress.class: traefik
         path: /
+        tls:
+          - secretName: grafana-secret
         hosts:
           - grafana.mydomain.com
