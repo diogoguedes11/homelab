@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: audiobookshelf
+  namespace: audiobookshelf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: audiobookshelf
+  template:
+    metadata:
+      labels:
+        app: audiobookshelf
+    spec:
+      # securityContext:
+      #   fsGroup: 33 # www-data group ID
+      #   runAsUser: 33 # www-data user ID
+      #   runAsGroup: 33 # www-data group ID
+
+      containers:
+        - name: audiobookshelf
+          image: ghcr.io/advplyr/audiobookshelf:2.19.5
+          ports:
+            - containerPort: 13378
+
+          env:
+            - name: TZ
+              value: "Europe/Lisbon"
+
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+
+          securityContext:
+            allowPrivilegeEscalation: false
+
+      #     volumeMounts:
+      #       - name: audiobookshelf-data
+      #         mountPath: /etc/linkding/data
+      # volumes:
+      #   - name: audiobookshelft-data
+      #     persistentVolumeClaim:
+      #       claimName: audiobookshelf-data-pvc
