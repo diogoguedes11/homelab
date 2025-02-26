@@ -7,6 +7,7 @@ spec:
   ports:
     - name: audiobookshelf
       port: 3005
+      targetPort: 3005
 
   selector:
     app: audiobookshelf
