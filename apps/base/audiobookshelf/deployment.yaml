@@ -39,10 +39,26 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
 
-      #     volumeMounts:
-      #       - name: audiobookshelf-data
-      #         mountPath: /etc/linkding/data
-      # volumes:
-      #   - name: audiobookshelft-data
-      #     persistentVolumeClaim:
-      #       claimName: audiobookshelf-data-pvc
+          volumeMounts:
+            - name: audiobookshelf-audiobooks
+              mountPath: /audiobooks
+            - name: audiobookshelf-podcasts
+              mountPath: /podcasts
+            - name: audiobookshelf-config
+              mountPath: /config
+            - name: audiobookshelf-metadata
+              mountPath: /metadata
+
+      volumes:
+        - name: audiobookshelf-audiobooks
+          persistentVolumeClaim:
+            claimName: audiobookshelf-podcasts
+        - name: audiobookshelf-podcasts
+          persistentVolumeClaim:
+            claimName: audiobookshelf-podcasts
+        - name: audiobookshelf-config
+          persistentVolumeClaim:
+            claimName: audiobookshelf-config
+        - name: audiobookshelf-metadata
+          persistentVolumeClaim:
+            claimName: audiobookshelf-metadata
