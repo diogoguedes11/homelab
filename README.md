@@ -36,7 +36,6 @@ I'm running a single-node cluster on the following hardware:
 
 ### Infrastructure
 
-Everything needed to run my cluster & deploy my applications
 <table>
     <tr>
         <th>Logo</th>
@@ -51,22 +50,22 @@ Everything needed to run my cluster & deploy my applications
     <tr>
         <td><img width="32" src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/flux-cd.svg"></td>
         <td><a href="https://fluxcd.io/">Flux CD</a></td>
-        <td>My GitOps solution of choice. Better than Argo.</td>
+        <td> The GitOps tool for Kubernetes.Currently testing and comparing with ArgoCD </td>
     </tr>
     <tr>
         <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/grafana.svg"></td>
         <td><a href="https://grafana.com/">Grafana</a></td>
-        <td>The open observability platform.</td>
+        <td>A leading open-source platform for data visualization and monitoring, enabling the creation of interactive and insightful dashboards.</td>
     </tr>
     <tr>
         <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/prometheus.svg"></td>
         <td><a href="https://prometheus.io/">Prometheus</a></td>
-        <td>An open-source monitoring system with a dimensional data model, flexible query language, efficient time series database and modern alerting approach.</td>
+        <td>An open-source monitoring and alerting toolkit that features a powerful time series database and flexible query language for real-time insights.</td>
     </tr>
     <tr>
         <td><img width="32" src="https://www.svgrepo.com/download/374041/renovate.svg"></td>
         <td><a href="https://github.com/renovatebot/renovate">Renovate</a></td>
-        <td>Automated dependency updates.</td>
+        <td>Automated dependency management tool that simplifies keeping your projects up-to-date and secure by handling updates seamlessly.</td>
     </tr>
 </table>
 
