@@ -6,7 +6,7 @@ metadata:
 spec:
   ports:
     - name: audiobookshelf
-      port: 80
+      port: 3005
 
   selector:
     app: audiobookshelf
