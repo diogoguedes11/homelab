@@ -24,9 +24,9 @@ spec:
           ports:
             - containerPort: 80
 
-          env:
-            - name: TZ
-              value: "Europe/Lisbon"
+          envFrom:
+            - configMapRef:
+                name: audiobookshelf-cm
 
           resources:
             limits:
