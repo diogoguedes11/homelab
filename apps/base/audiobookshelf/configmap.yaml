@@ -5,3 +5,4 @@ metadata:
   namespace: audiobookshelf
 data:
   TN: "Europe/Lisbon"
+  PORT: "3005"
