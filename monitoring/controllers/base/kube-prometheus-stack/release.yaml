@@ -31,14 +31,14 @@ spec:
         groups:
           - name: example-alerting-rules
             rules:
-              - alert: HighCPUUsage
-                expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 30
+              - alert: HighMemoryUsage
+                expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 30
                 for: 1m
                 labels:
                   severity: warning
                 annotations:
-                  summary: "High CPU usage on {{ $labels.instance }}"
-                  description: "CPU usage is above 30% for more than 1 minute."
+                  summary: "High memory usage on {{ $labels.instance }}"
+                  description: "Memory usage is above 30% for more than 1 minute."
 
     grafana:
       enabled: true
