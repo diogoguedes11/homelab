@@ -37,7 +37,7 @@ spec:
                 labels:
                   severity: warning
                 annotations:
-                  summary: "High memory usage on {{ $labels.instance }}"
+                  summary: "High memory usage"
                   description: "Memory usage is above 30% for more than 1 minute."
 
     grafana:
