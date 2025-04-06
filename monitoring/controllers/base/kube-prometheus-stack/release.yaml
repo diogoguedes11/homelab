@@ -26,19 +26,19 @@ spec:
         target:
           kind: PrometheusRule
   values:
-    additionalPrometheusRulesMap:
+    additionalPrometheusRulesMap: # Add Additional Prometheus rules
       example-rule:
         groups:
           - name: example-alerting-rules
             rules:
               - alert: HighMemoryUsage
-                expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 30
+                expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 80
                 for: 1m
                 labels:
                   severity: warning
                 annotations:
                   summary: "High memory usage"
-                  description: "Memory usage is above 30% for more than 1 minute."
+                  description: "Memory usage is above 80% for more than 1 minute."
 
     grafana:
       enabled: true
