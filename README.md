@@ -67,6 +67,11 @@ I'm running a single-node cluster on the following hardware:
         <td><a href="https://github.com/renovatebot/renovate">Renovate</a></td>
         <td>Automated dependency management tool that simplifies keeping your projects up-to-date and secure by handling updates seamlessly.</td>
     </tr>
+    <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/postgresql.svg"></td>
+        <td><a href="https://cloudnative-pg.io/">CloudNativePG</a></td>
+        <td>Database operator for running PostgreSQL clusters</td>
+    </tr>
 </table>
 
 
