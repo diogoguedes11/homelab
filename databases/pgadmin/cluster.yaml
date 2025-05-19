@@ -4,6 +4,8 @@ metadata:
   name: my-cluster
   namespace: databases
 spec:
-  instances: 3
+  instances: 1
+  superuserSecret:
+    name: superuser-secret
   storage:
     size: 1Gi
