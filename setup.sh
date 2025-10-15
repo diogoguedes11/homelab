@@ -5,13 +5,15 @@ set -e
 if command -v argocd &> /dev/null
 then
     echo "ArgoCD CLI is already installed"
-    exit 0
-fi
 else 
     echo "Installing ArgoCD CLI"
-    curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
-    sudo mv argocd /usr/local/bin/argocd
-    sudo chmod +x /usr/local/bin/argocd
+    if curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64; then
+        sudo mv argocd /usr/local/bin/argocd
+        sudo chmod +x /usr/local/bin/argocd
+    else
+        echo "Failed to download ArgoCD CLI" >&2
+        exit 1
+    fi
 fi
 
 
