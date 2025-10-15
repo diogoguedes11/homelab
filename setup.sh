@@ -28,3 +28,6 @@ echo "kubectl port-forward svc/argocd-server -n argocd 8080:443"
 echo "Then open https://localhost:8080"
 echo "Get initial admin password with:"
 echo "kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath='{.data.password}' | base64 -d"
+
+# To enable kustomize in argocd you mustt add the following under the argocd-cm configmap:
+# kustomize.buildOptions: --enable-helm --load-restrictor=LoadRestrictionsNone
