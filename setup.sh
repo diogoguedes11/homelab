@@ -2,8 +2,18 @@
 set -e
 
 # Install ArgoCD CLI
-curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
-chmod +x /usr/local/bin/argocd
+if command -v argocd &> /dev/null
+then
+    echo "ArgoCD CLI is already installed"
+    exit 0
+fi
+else 
+    echo "Installing ArgoCD CLI"
+    curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+    sudo mv argocd /usr/local/bin/argocd
+    sudo chmod +x /usr/local/bin/argocd
+fi
+
 
 # Create namespace for ArgoCD
 kubectl create namespace argocd || true
