@@ -1,6 +1,15 @@
 #!/bin/bash
 set -e
 
+# create k3d cluster
+# k3d cluster create homelab \
+#  -p "8080:80@loadbalancer" \
+#  -p "8443:443@loadbalancer" \
+#  --agents 2 \
+#  --servers 1 \
+#  --k3s-arg "--disable=traefik@server:0" 
+#
+
 # Install ArgoCD CLI
 if command -v argocd &> /dev/null
 then
