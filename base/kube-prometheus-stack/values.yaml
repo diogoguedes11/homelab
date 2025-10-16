@@ -52,20 +52,6 @@ prometheusOperator:
     certManager:
       enabled: false
   replicas: 1
-  tolerations:
-  - key: "monitoring"
-    operator: "Equal"
-    value: "true"
-    effect: "NoSchedule"
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: Purpose
-            operator: In
-            values:
-            - monitoring
   resources:
     requests:
       cpu: 100m
@@ -149,20 +135,6 @@ prometheus:
     securityContext:
       fsGroup: 65534
       runAsUser: 65534
-    tolerations:
-    - key: "monitoring"
-      operator: "Equal"
-      value: "true"
-      effect: "NoSchedule"
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: Purpose
-              operator: In
-              values:
-              - monitoring
     automountServiceAccountToken: null
     # alertingEndpoints:
     #   - namespace: observability
@@ -247,20 +219,6 @@ alertmanager:
       labels:
         k8s.observability.component: kube-prometheus-stack-alertmanager
     replicas: 2
-    tolerations:
-    - key: "monitoring"
-      operator: "Equal"
-      value: "true"
-      effect: "NoSchedule"
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: Purpose
-              operator: In
-              values:
-              - monitoring
     securityContext:
       fsGroup: 2000
       runAsGroup: 2000
@@ -290,20 +248,6 @@ grafana:
   # OIDC configuration sourced from an external secret
   # createConfigmap: false # Assuming Grafana config (like OIDC) is handled via envFromSecret
   # envFromSecret: grafana-oidc-secret
-  tolerations:
-  - key: "monitoring"
-    operator: "Equal"
-    value: "true"
-    effect: "NoSchedule"
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: Purpose
-            operator: In
-            values:
-            - monitoring
   serviceAccount:
     create: true
     autoMount: true
@@ -448,20 +392,6 @@ kubelet:
 nodeExporter:
   # This usually controls the daemonset etc.
   enabled: true
-  tolerations:
-  - key: "monitoring"
-    operator: "Equal"
-    value: "true"
-    effect: "NoSchedule"
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: Purpose
-            operator: In
-            values:
-            - monitoring
   operatingSystems:
     # Specify which OS node-exporter daemonsets to enable
     linux:
@@ -519,43 +449,15 @@ kube-state-metrics:
       - cluster
       - environment
       - k8s.observability.component
-  tolerations:
-  - key: "monitoring"
-    operator: "Equal"
-    value: "true"
-    effect: "NoSchedule"
   service:
     enabled: true
     port: 8080
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: Purpose
-            operator: In
-            values:
-            - monitoring
 
 # --- CoreDNS Monitoring ---
 # Configuration for monitoring CoreDNS.
 coreDns:
   # enabled: true # Assuming enabled as serviceMonitor is configured
   # service.enabled: true # Assuming service exists for monitoring
-  tolerations:
-  - key: "monitoring"
-    operator: "Equal"
-    value: "true"
-    effect: "NoSchedule"
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: Purpose
-            operator: In
-            values:
-            - monitoring
   serviceMonitor:
     # enabled: true # Assuming enabled as interval is configured
     interval: 60s
